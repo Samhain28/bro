@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ты меня любишь?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    #yesButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #noButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      position: absolute;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ты меня любишь?</h1>
+  <div class="buttons">
+    <button id="yesButton">Да</button>
+    <button id="noButton">Нет</button>
+  </div>
+  <p id="message"></p>
+
+  <script>
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const message = document.getElementById('message');
+
+    // Обработчик для кнопки "Да"
+    yesButton.addEventListener('click', () => {
+      message.textContent = "Я знал(а)! ❤️";
+    });
+
+    // Обработчик для кнопки "Нет"
+    noButton.addEventListener('mouseover', () => {
+      // Случайное изменение позиции кнопки "Нет"
+      const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+      noButton.style.left = `${x}px`;
+      noButton.style.top = `${y}px`;
+    });
+
+    // Не даем нажать кнопку "Нет"
+    noButton.addEventListener('click', (e) => {
+      e.preventDefault();
+    });
+  </script>
+</body>
+</html>
